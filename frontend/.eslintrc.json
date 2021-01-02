@@ -1,0 +1,23 @@
+{
+  "extends": [
+    "react-app"
+  ],
+  "rules": {
+    "eol-last": [
+      "error",
+      "always"
+    ],
+    "indent": ["error", 2],
+    "object-curly-spacing": ["error","always"],
+    "jsx-quotes": ["error", "prefer-single"],
+    "quotes": ["error", "single"]
+  },
+  "overrides": [
+    {
+      "files": [
+        "**/*.ts?(x)"
+      ],
+      "rules": {}
+    }
+  ]
+}

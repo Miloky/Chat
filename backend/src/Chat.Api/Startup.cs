@@ -74,13 +74,14 @@ namespace Chat.Api
                 app.UseDeveloperExceptionPage();
             }
 
-
+            app.UseStaticFiles();
 
             app.UseRouting();
             app.UseCors(ChatCorsPolicyName);
-
             app.UseAuthentication();
             app.UseIdentityServer();
+            app.UseAuthorization();
+
             app.UseEndpoints(routeBuilder =>
             {
                 routeBuilder.MapControllerRoute(

@@ -1,5 +1,6 @@
 using System;
 using Chat.Api.Hubs;
+using Chat.Api.Services;
 using Chat.Application.Interfaces;
 using Chat.Application.Messages.Commands.CreateMessage;
 using Chat.Domain;
@@ -16,7 +17,7 @@ using Microsoft.IdentityModel.Logging;
 
 namespace Chat.Api
 {
-  public class Startup
+    public class Startup
     {
         private const string ChatCorsPolicyName = "ChatCorsPolicy";
         private readonly IConfiguration _configuration;
@@ -28,6 +29,9 @@ namespace Chat.Api
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddHttpContextAccessor();
+            services.AddScoped<ICurrentUserService, CurrentUserService>();
+
             services.AddMediatR(typeof(CreateMessageCommand).Assembly);
             services.AddSignalR();
             services.AddControllersWithViews();

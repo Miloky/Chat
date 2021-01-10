@@ -88,6 +88,16 @@ class AuthenticationService {
     return user && user.profile;
   }
 
+  public async getAccessToken(): Promise<string> {
+    await this.ensureUserManagerInitialized();
+    const user = await (this._userManager as UserManager).getUser();
+    if(!user){
+      throw new Error('Cannot get user!');
+    }
+
+    return  user.access_token;
+  }
+
   private async ensureUserManagerInitialized(): Promise<void> {
     if (this._userManager !== undefined) {
       return;

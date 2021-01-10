@@ -1,6 +1,8 @@
-﻿namespace Chat.Domain
+﻿using Chat.Domain.Common;
+
+namespace Chat.Domain
 {
-    public class Message
+    public class Message: AuditableEntity
     {
         public string Id { get; set; }
         public string UserId { get; set; }

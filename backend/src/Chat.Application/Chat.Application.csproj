@@ -9,6 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Contacts\Queries\GetUserContactsQuery\" />
     <Folder Include="Messages\Queries\" />
   </ItemGroup>
 

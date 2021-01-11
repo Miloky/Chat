@@ -59,6 +59,8 @@ namespace Chat.Api
                 });
             });
 
+            services.AddSwaggerGen();
+
             services.AddDefaultIdentity<ApplicationUser>()
                 .AddEntityFrameworkStores<ChatDbContext>();
 
@@ -77,6 +79,13 @@ namespace Chat.Api
                 IdentityModelEventSource.ShowPII = true;
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseSwagger();
+            app.UseSwaggerUI(config =>
+            {
+                config.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+                config.RoutePrefix = string.Empty;
+            });
 
             app.UseStaticFiles();
 
